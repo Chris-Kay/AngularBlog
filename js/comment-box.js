@@ -26,7 +26,7 @@
     app.directive('commentBox', function() {
         return {
             restrict: 'E',
-            templateUrl: 'comment-box.html'
+            templateUrl: '../htdocs/comment-box.html'
         }
     });
 })();

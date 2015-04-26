@@ -13,7 +13,7 @@
     app.directive('postImage', function() {
         return {
             restrict: 'E',
-            'templateUrl': 'post-image.html'
+            'templateUrl': '../htdocs/post-image.html'
         }
     });
 })();
