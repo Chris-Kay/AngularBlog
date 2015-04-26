@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="blog">
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+    <title>Angular Blog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="angular-sanitize.min.js"></script>
 
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-controller="BlogController as blog">
+<div ng-repeat="product in blog.products">
+        <h1>{{product.heading}}</h1>
+        <h2>{{product.subHeading}}</h2>
+        <div ng-bind-html=product.body></div>
+        <img ng-show='product.image.figure.length' ng-src="{{product.image.figure}}" alt={{product.image.alt}}" />
+    </div>
 </body>
 </html>
