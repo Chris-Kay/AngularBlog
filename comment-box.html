@@ -1,0 +1,18 @@
+<blockquote ng-repeat="comment in product.comments">
+    <cite>Submitted By: {{comment.author}}</cite>
+    <p>{{comment.commentMessage}}</p>
+    <em>{{comment.createdOn | date}}</em>
+</blockquote>
+<form name="commentForm" ng-controller="CommentMessageController as commentMessageCtrl"
+      ng-submit="commentForm.$valid && commentMessageCtrl.addComment(product)" novalidate>
+    <blockquote>
+        <h5>Add Comment</h5>
+        <cite>Submitted By: {{commentMessageCtrl.comment.author}}</cite>
+        <p>{{commentMessageCtrl.comment.commentMessage}}</p>
+    </blockquote>
+    <div class="form-group">
+        <input ng-model='commentMessageCtrl.comment.author' class="form-control" type="text" placeholder="Enter Name" required/>
+        <textarea ng-model='commentMessageCtrl.comment.commentMessage' class="form-control" placeholder="Comment.." required></textarea>
+        <input class="btn btn-default" type="submit" vaue="submit" />
+    </div>
+</form>

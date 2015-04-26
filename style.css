@@ -1,0 +1,29 @@
+.centered-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container {
+    width: 60%;
+}
+.ng-invalid.ng-dirty {
+    border-color: red;
+}
+.ng-valid.ng-dirty {
+    border-color: green;
+}
+article.blogPost {
+    border-bottom: lightgray;
+    border-width: 3px;
+    border-style: solid;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.viewComments a, a:visited, a:active {
+    color:red;
+}
+.viewComments span {
+    font-weight: bold;
+    color: blue;
+}
