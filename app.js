@@ -16,6 +16,15 @@
             return this.showComments === checkComments;
         }
     });
+
+    app.controller('CommentMessageController', function() {
+       this.comment = {};
+
+        this.addComment = function(product) {
+            product.comments.push(this.comment);
+            this.comment = {};
+        }
+    });
     var posts = [
         {
             "heading": "HEADING 1",
@@ -26,6 +35,16 @@
                 'figure': 'http://lorempixel.com/400/200/sports/1/',
                 'alt': 'alt text'
             },
+            comments: [
+                {
+                'author': 'Chris Kay',
+                'commentMessage': 'this is awesome !!!!'
+                },
+                {
+                    'author': 'John Doe',
+                    'commentMessage': 'Comment Here !!!!'
+                }
+            ],
             assetId: 123
         },
         {
@@ -35,6 +54,16 @@
                 'figure': 'http://lorempixel.com/400/200/sports/2/',
                 'alt': 'alt text'
             },
+            comments: [
+                {
+                    'author': 'Chris Kay',
+                    'commentMessage': 'this is awesome !!!!'
+                },
+                {
+                    'author': 'John Doe',
+                    'commentMessage': 'Comment Here !!!!'
+                }
+            ],
             assetId: 123
         },
         {
@@ -44,6 +73,16 @@
                 'figure': 'http://lorempixel.com/400/200/sports/3/',
                 'alt': 'alt text'
             },
+            comments: [
+                {
+                    'author': 'Chris Kay',
+                    'commentMessage': 'this is awesome !!!!'
+                },
+                {
+                    'author': 'John Doe',
+                    'commentMessage': 'Comment Here !!!!'
+                }
+            ],
             assetId: 124
         },
         {
@@ -53,6 +92,16 @@
                 'figure': 'http://lorempixel.com/400/200/sports/4/',
                 'alt': 'alt text'
             },
+            comments: [
+                {
+                    'author': 'Chris Kay',
+                    'commentMessage': 'this is awesome !!!!'
+                },
+                {
+                    'author': 'John Doe',
+                    'commentMessage': 'Comment Here !!!!'
+                }
+            ],
             assetId: 125
         },
         {
@@ -61,6 +110,16 @@
             'video': {
                 'link': 'http://ak7.picdn.net/shutterstock/videos/6133199/preview/stock-footage-glare-of-the-sun-on-the-surface-of-calm-azure-waters-mp.mp4'
             },
+            comments: [
+                {
+                    'author': 'Chris Kay',
+                    'commentMessage': 'this is awesome !!!!'
+                },
+                {
+                    'author': 'John Doe',
+                    'commentMessage': 'Comment Here !!!!'
+                }
+            ],
             assetId: 126
         },
         {
@@ -70,6 +129,16 @@
                 'figure': 'http://lorempixel.com/400/200/sports/6/',
                 'alt': 'alt text'
             },
+            comments: [
+                {
+                    'author': 'Chris Kay',
+                    'commentMessage': 'this is awesome !!!!'
+                },
+                {
+                    'author': 'John Doe',
+                    'commentMessage': 'Comment Here !!!!'
+                }
+            ],
             assetId: 127
         },
         {
@@ -79,6 +148,16 @@
                 'figure': 'http://lorempixel.com/400/200/sports/7/',
                 'alt': 'alt text'
             },
+            comments: [
+                {
+                    'author': 'Chris Kay',
+                    'commentMessage': 'this is awesome !!!!'
+                },
+                {
+                    'author': 'John Doe',
+                    'commentMessage': 'Comment Here !!!!'
+                }
+            ],
             assetId: 128
         }
 
