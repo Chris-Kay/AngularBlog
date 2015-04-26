@@ -12,17 +12,18 @@
     <script type="text/javascript" src="app.js"></script>
 </head>
 <body class="container" ng-controller="BlogController as blog">
-<div class="product row" ng-repeat="product in blog.products">
-        <h1>{{product.heading}}</h1>
-        <h2>{{product.subHeading}}</h2>
+<h1>Random Blog</h1>
+<article class="blogPost" ng-repeat="product in blog.products">
+        <h2>{{product.heading}}</h2>
+        <h3>{{product.subHeading}}</h3>
         <div ng-bind-html=product.body></div>
         <img class="centered-image" ng-show='product.image.figure.length' ng-src="{{product.image.figure}}" alt={{product.image.alt}}" />
     <div ng-controller='CommentController as comments' class="comments">
-        <a href ng-click="comments.toggleComments()">View Comments</a>
+        <a href class="viewComments" ng-click="comments.toggleComments()">View Comments<span>  ({{product.comments.length}})</span> </a>
             <div ng-show="comments.commentsVisible(true)">
                <comment-box></comment-box>
             </div>
         </div>
-    </div>
+    </article>
 </body>
 </html>
