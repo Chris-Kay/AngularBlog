@@ -9,4 +9,11 @@
             blog.products = data;
         });
     }]);
+
+    app.directive('postImage', function() {
+        return {
+            restrict: 'E',
+            'templateUrl': 'post-image.html'
+        }
+    });
 })();

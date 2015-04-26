@@ -5,8 +5,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <link rel='stylesheet' href="style.css">
-    <script type="text/javascript" src="angular.min.js"></script>
-    <script type="text/javascript" src="angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="libs/angular.min.js"></script>
+    <script type="text/javascript" src="libs/angular-sanitize.min.js"></script>
     <script type="text/javascript" src="comment-box.js"></script>
 
     <script type="text/javascript" src="app.js"></script>
@@ -17,7 +17,7 @@
         <h2>{{product.heading}}</h2>
         <h3>{{product.subHeading}}</h3>
         <div ng-bind-html=product.body></div>
-        <img class="centered-image" ng-show='product.image.figure.length' ng-src="{{product.image.figure}}" alt={{product.image.alt}}" />
+        <post-image></post-image>
     <div ng-controller='CommentController as comments' class="comments">
         <a href class="viewComments" ng-click="comments.toggleComments()">View Comments<span>  ({{product.comments.length}})</span> </a>
             <div ng-show="comments.commentsVisible(true)">
