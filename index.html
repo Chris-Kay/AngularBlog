@@ -16,6 +16,12 @@
         <h2>{{product.subHeading}}</h2>
         <div ng-bind-html=product.body></div>
         <img class="centered-image" ng-show='product.image.figure.length' ng-src="{{product.image.figure}}" alt={{product.image.alt}}" />
+    <div ng-controller='CommentController as comments' class="comments">
+        <a href ng-click="comments.toggleComments()">View Comments</a>
+            <div ng-show="comments.commentsVisible(true)">
+                <p>Hello World</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>

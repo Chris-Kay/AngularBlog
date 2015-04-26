@@ -4,6 +4,18 @@
     app.controller('BlogController', function() {
         this.products = posts;
     });
+
+    app.controller('CommentController', function() {
+        this.showComments = false;
+
+        this.toggleComments = function() {
+            this.showComments = !this.showComments;
+        }
+
+        this.commentsVisible = function(checkComments) {
+            return this.showComments === checkComments;
+        }
+    });
     var posts = [
         {
             "heading": "HEADING 1",
