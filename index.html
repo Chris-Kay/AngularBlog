@@ -19,23 +19,7 @@
     <div ng-controller='CommentController as comments' class="comments">
         <a href ng-click="comments.toggleComments()">View Comments</a>
             <div ng-show="comments.commentsVisible(true)">
-                <blockquote ng-repeat="comment in product.comments">
-                    <cite>Submitted By: {{comment.author}}</cite>
-                    <p>{{comment.commentMessage}}</p>
-                </blockquote>
-                <form name="commentForm" ng-controller="CommentMessageController as commentMessageCtrl"
-                        ng-submit="commentMessageCtrl.addComment(product)">
-                    <blockquote>
-                        <h4>Add Comment</h4>
-                        <cite>Submitted By: {{commentMessageCtrl.comment.author}}</cite>
-                        <p>{{commentMessageCtrl.comment.commentMessage}}</p>
-                    </blockquote>
-                    <div class="form-group">
-                    <input ng-model='commentMessageCtrl.comment.author' class="form-control" type="text" placeholder="Enter Name" />
-                    <textarea ng-model='commentMessageCtrl.comment.commentMessage' class="form-control" placeholder="Comment.."></textarea>
-                    <input class="btn btn-default" type="submit" vaue="submit" />
-                        </div>
-                </form>
+               <comment-box></comment-box>
             </div>
         </div>
     </div>

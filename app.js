@@ -21,10 +21,19 @@
        this.comment = {};
 
         this.addComment = function(product) {
+            this.comment.createdOn = (Date.now());
             product.comments.push(this.comment);
             this.comment = {};
         }
     });
+
+    app.directive('commentBox', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'comment-box.html'
+        }
+    });
+
     var posts = [
         {
             "heading": "HEADING 1",
@@ -38,7 +47,8 @@
             comments: [
                 {
                 'author': 'Chris Kay',
-                'commentMessage': 'this is awesome !!!!'
+                'commentMessage': 'this is awesome !!!!',
+                createdOn: 1397490980837
                 },
                 {
                     'author': 'John Doe',
