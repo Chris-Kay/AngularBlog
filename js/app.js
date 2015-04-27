@@ -1,14 +1,15 @@
 (function() {
-    var app = angular.module('blog', ['ngSanitize', 'blog-commentBox']);
+    var app = angular.module('blog', ['ngSanitize', 'firebase', 'blog-commentBox']);
 
-    app.controller('BlogController',['$http', function($http) {
+    var firebaseRef = new Firebase('https://brilliant-inferno-9224.firebaseio.com/');
+
+    app.controller('BlogController', function($firebaseObject) {
         var blog = this;
         blog.products = [];
 
-        $http.get('posts.json').success(function(data) {
-            blog.products = data;
-        });
-    }]);
+        blog.products = $firebaseObject(firebaseRef);
+
+    });
 
     app.directive('postImage', function() {
         return {
