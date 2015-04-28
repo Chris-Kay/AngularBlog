@@ -17,8 +17,10 @@
         this.comment = {};
 
         this.addComment = function(product) {
+            var firebaseRef = new Firebase('https://brilliant-inferno-9224.firebaseio.com/' + product.assetId);
+            var usersRef = firebaseRef.child("comments");
             this.comment.createdOn = (Date.now());
-            product.comments.push(this.comment);
+            usersRef.push(this.comment);
             this.comment = {};
         }
     });
