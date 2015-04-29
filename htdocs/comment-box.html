@@ -1,8 +1,9 @@
-<blockquote ng-repeat="(comment, id) in product.comments" ng-controller="CommentMessageController as commentMessageCtrl">
+<div  ng-controller="CommentMessageController as commentMessageCtrl">
+<blockquote ng-repeat="(id, comment) in product.comments">
     <cite>Submitted By: {{comment.author}}</cite>
     <p>{{comment.commentMessage}}</p>
-    <em>{{comment.createdOn | date}}</em>
-    <button ng-click="commentMessageCtrl.removeComment(product, comment, id)"></button>
+    <em>{{comment.createdOn | date}}</em><br />
+    <button ng-click="commentMessageCtrl.removeComment(product, comment, id)">Remove</button>
 </blockquote>
 <form name="commentForm"
       ng-submit="commentForm.$valid && commentMessageCtrl.addComment(product)" novalidate>
@@ -17,3 +18,4 @@
         <input class="btn btn-default" type="submit" vaue="submit" />
     </div>
 </form>
+    </div>

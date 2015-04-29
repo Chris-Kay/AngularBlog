@@ -18,15 +18,22 @@
         this.comment = {};
 
         this.addComment = function(product) {
+            console.log(this.comment);
             var firebaseRef = $firebaseArray(new Firebase('https://brilliant-inferno-9224.firebaseio.com/' + product.assetId + '/comments'));
             this.comment.createdOn = (Date.now());
             firebaseRef.$add(this.comment);
             this.comment = {};
         }
         this.removeComment = function(product, comment, id) {
-            var firebaseRef = $firebaseArray(new Firebase('https://brilliant-inferno-9224.firebaseio.com/' + product.assetId + '/comments/' + comment));
-            firebaseRef.$remove();
-            this.comment = {};
+
+            var ref= new Firebase('https://brilliant-inferno-9224.firebaseio.com/' + product.assetId + '/comments/');
+            ref.child(id).remove(function(error){
+                if (error) {
+                    console.log("Error:", error);
+                } else {
+                    console.log("Removed successfully!");
+                }
+            });
         }
     }]);
 

@@ -13,7 +13,7 @@
 </head>
 <body class="container" ng-controller="BlogController as blog">
 <h1>Random Blog</h1>
-<article class="blogPost" ng-repeat="product in blog.products">
+<article class="blogPost" ng-repeat="(id, product) in blog.products">
         <h2>{{product.heading}}</h2>
         <h3>{{product.subHeading}}</h3>
         <div ng-bind-html=product.body></div>
