@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('blog-commentBox', []);
+    var app = angular.module('blog-commentBox', ['firebase']);
 
     app.controller('CommentController', function() {
         this.showComments = false;
@@ -13,17 +13,17 @@
         }
     });
 
-    app.controller('CommentMessageController', function() {
+    app.controller('CommentMessageController',['$firebaseArray',
+     function($firebaseArray) {
         this.comment = {};
 
         this.addComment = function(product) {
-            var firebaseRef = new Firebase('https://brilliant-inferno-9224.firebaseio.com/' + product.assetId);
-            var usersRef = firebaseRef.child("comments");
+            var firebaseRef = $firebaseArray(new Firebase('https://brilliant-inferno-9224.firebaseio.com/' + product.assetId + '/comments'));
             this.comment.createdOn = (Date.now());
-            usersRef.push(this.comment);
+            firebaseRef.$add(this.comment);
             this.comment = {};
         }
-    });
+    }]);
 
     app.directive('commentBox', function() {
         return {
