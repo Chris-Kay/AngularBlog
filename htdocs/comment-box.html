@@ -1,9 +1,10 @@
-<blockquote ng-repeat="comment in product.comments">
+<blockquote ng-repeat="(comment, id) in product.comments" ng-controller="CommentMessageController as commentMessageCtrl">
     <cite>Submitted By: {{comment.author}}</cite>
     <p>{{comment.commentMessage}}</p>
     <em>{{comment.createdOn | date}}</em>
+    <button ng-click="commentMessageCtrl.removeComment(product, comment, id)"></button>
 </blockquote>
-<form name="commentForm" ng-controller="CommentMessageController as commentMessageCtrl"
+<form name="commentForm"
       ng-submit="commentForm.$valid && commentMessageCtrl.addComment(product)" novalidate>
     <blockquote>
         <h5>Add Comment</h5>

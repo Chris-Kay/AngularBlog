@@ -23,6 +23,11 @@
             firebaseRef.$add(this.comment);
             this.comment = {};
         }
+        this.removeComment = function(product, comment, id) {
+            var firebaseRef = $firebaseArray(new Firebase('https://brilliant-inferno-9224.firebaseio.com/' + product.assetId + '/comments/' + comment));
+            firebaseRef.$remove();
+            this.comment = {};
+        }
     }]);
 
     app.directive('commentBox', function() {
